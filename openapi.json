@@ -1,0 +1,1010 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Backbone Control Server API",
+    "description": "Backbone Control Server API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "UNDEFINED",
+      "description": "Production server"
+    },
+    {
+      "url": "UNDEFINED",
+      "description": "Staging server"
+    },
+    {
+      "url": "https:\/\/localhost:30340",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "\/auth\/role": {
+      "get": {
+        "tags": [
+          "auth-role"
+        ],
+        "summary": "Get all available roles from this resource server",
+        "description": "Get all available roles from this resource server",
+        "operationId": "getAuthRoleCollection",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/authRoleCollection"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "\/auth\/role-identity": {
+      "get": {
+        "tags": [
+          "auth-role-identity"
+        ],
+        "summary": "Get all role to identity assignments from this resource server",
+        "description": "Get all role to identity assignments from this resource server",
+        "operationId": "getAuthRoleIdentityCollection",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "auth-role-identity"
+        ],
+        "summary": "Create one or more role to identity assignments in this resource server",
+        "description": "Create one or more role to identity assignments in this resource server",
+        "operationId": "postAuthRoleIdentityCollection",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application\/json": {
+              "schema": {
+                "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "auth-role-identity"
+        ],
+        "summary": "Delete one or more role to identity assignments in this resource server",
+        "description": "Delete one or more role to identity assignments in this resource server",
+        "operationId": "deleteAuthRoleIdentityCollection",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application\/json": {
+              "schema": {
+                "$ref": "#\/components\/schemas\/authRoleIdentityCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "\/docs": {
+      "get": {
+        "tags": [
+          "docs"
+        ],
+        "summary": "Get the openapi documentation as json",
+        "description": "Get the openapi documentation as json",
+        "operationId": "getOpenApi",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "\/docs\/openapi.{format}": {
+      "get": {
+        "tags": [
+          "docs"
+        ],
+        "summary": "Get the openapi documentation in the specified format (yaml or json, fallback is json)",
+        "description": "Get the openapi documentation in the specified format (yaml or json, fallback is json)",
+        "operationId": "getOpenApiInFormat",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "path",
+            "description": "Openapi file format",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "yaml",
+                "json"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "\/task": {
+      "get": {
+        "tags": [
+          "task"
+        ],
+        "summary": "Get tasks",
+        "description": "Get tasks",
+        "operationId": "getTaskCollection",
+        "parameters": [
+          {
+            "name": "filter[projectId]",
+            "in": "query",
+            "description": "Task projectId filter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[taskType]",
+            "in": "query",
+            "description": "Task taskType filter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter[notBefore]",
+            "in": "query",
+            "description": "Task notBefore filter",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "filter[taskStatus]",
+            "in": "query",
+            "description": "Task taskStatus filter",
+            "style": "form",
+            "explode": false,
+            "allowReserved": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/taskResourceCollection"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "\/task\/{taskId}": {
+      "patch": {
+        "tags": [
+          "task"
+        ],
+        "summary": "Update a Task",
+        "description": "Update one or more fields of a Task",
+        "operationId": "patchTask",
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "Task Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application\/json": {
+              "schema": {
+                "$ref": "#\/components\/schemas\/updateTaskResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/taskResource"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "\/task-template": {
+      "get": {
+        "tags": [
+          "task-template"
+        ],
+        "summary": "Get task templates",
+        "description": "Get task templates",
+        "operationId": "getTaskTemplateCollection",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/taskTemplateResourceCollection"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "\/task-template\/{taskTemplateId}\/task": {
+      "post": {
+        "tags": [
+          "task-template"
+        ],
+        "summary": "Generate a task with a task template id",
+        "description": "Generate a task with a task template id",
+        "operationId": "postTaskTemplateTask",
+        "parameters": [
+          {
+            "name": "taskTemplateId",
+            "in": "path",
+            "description": "Task Template Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application\/json": {
+              "schema": {
+                "$ref": "#\/components\/schemas\/taskTemplateTaskResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/taskResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application\/json": {
+                "schema": {
+                  "$ref": "#\/components\/schemas\/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "errorResponse": {
+        "properties": {
+          "errors": {
+            "description": "errors",
+            "type": "array",
+            "items": {
+              "$ref": "#\/components\/schemas\/error"
+            }
+          }
+        },
+        "type": "object"
+      },
+      "error": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "description": "Code",
+            "type": "string"
+          },
+          "message": {
+            "description": "Message",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "authPermissionResource": {
+        "required": [
+          "permissionCode",
+          "name"
+        ],
+        "properties": {
+          "permissionCode": {
+            "description": "Permission Code",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "getAuthPermissionCollectionResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#\/components\/schemas\/authPermissionResource"
+        }
+      },
+      "authRoleResource": {
+        "required": [
+          "roleCode",
+          "name"
+        ],
+        "properties": {
+          "roleCode": {
+            "description": "Role Code",
+            "type": "string"
+          },
+          "name": {
+            "description": "Name",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "authRoleCollection": {
+        "type": "array",
+        "items": {
+          "$ref": "#\/components\/schemas\/authRoleResource"
+        }
+      },
+      "authRoleIdentityResource": {
+        "required": [
+          "roleCode",
+          "identityId"
+        ],
+        "properties": {
+          "roleCode": {
+            "description": "Role Code",
+            "type": "string"
+          },
+          "identityId": {
+            "description": "Identity ID",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "authRoleIdentityCollection": {
+        "type": "array",
+        "items": {
+          "$ref": "#\/components\/schemas\/authRoleIdentityResource"
+        }
+      },
+      "taskResource": {
+        "required": [
+          "taskId",
+          "identityId",
+          "taskType",
+          "taskStatus"
+        ],
+        "properties": {
+          "taskId": {
+            "description": "Task Id",
+            "type": "string"
+          },
+          "identityId": {
+            "description": "Identity Id",
+            "type": "string"
+          },
+          "projectId": {
+            "nullable": true,
+            "description": "Project Id",
+            "type": "string"
+          },
+          "taskType": {
+            "description": "Task Type",
+            "type": "string"
+          },
+          "taskStatus": {
+            "description": "Task Status",
+            "type": "string"
+          },
+          "params": {
+            "nullable": true,
+            "description": "Params",
+            "type": "object"
+          },
+          "notBefore": {
+            "description": "NotBefore",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "type": "object"
+      },
+      "updateTaskResource": {
+        "description": "Class TaskResource",
+        "required": [
+          "taskStatus"
+        ],
+        "properties": {
+          "taskStatus": {
+            "description": "Task Status",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "taskResourceCollection": {
+        "description": "Class TaskResourceCollection",
+        "type": "array",
+        "items": {
+          "$ref": "#\/components\/schemas\/taskResource"
+        }
+      },
+      "taskTemplateResource": {
+        "required": [
+          "taskTemplateId",
+          "identityId",
+          "taskType",
+          "paramsTemplate",
+          "schedule",
+          "active",
+          "lastStartDate"
+        ],
+        "properties": {
+          "taskTemplateId": {
+            "description": "Task Template Id",
+            "type": "string"
+          },
+          "identityId": {
+            "description": "Identity Id",
+            "type": "string"
+          },
+          "projectId": {
+            "nullable": true,
+            "description": "Project Id",
+            "type": "string"
+          },
+          "taskType": {
+            "description": "Task Type",
+            "type": "string"
+          },
+          "paramsTemplate": {
+            "description": "Params Template",
+            "type": "object"
+          },
+          "params": {
+            "nullable": true,
+            "description": "Params",
+            "type": "object"
+          },
+          "lastStartDate": {
+            "description": "Last Start Date",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "type": "object"
+      },
+      "taskTemplateTaskResource": {
+        "description": "Class TaskTemplateResource",
+        "required": [
+          "startDate"
+        ],
+        "properties": {
+          "startDate": {
+            "description": "Start Date",
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "type": "object"
+      },
+      "taskTemplateResourceCollection": {
+        "description": "Class TaskTemplateResourceCollection",
+        "type": "array",
+        "items": {
+          "$ref": "#\/components\/schemas\/taskTemplateResource"
+        }
+      }
+    },
+    "securitySchemes": {
+      "oAuthAuthorization": {
+        "type": "oauth2",
+        "description": "OAuth2 Authorization",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https:\/\/authentication-api.conqore.niceshops.com\/oauth\/token",
+            "refreshUrl": "UNDEFINED",
+            "scopes": {}
+          }
+        }
+      }
+    }
+  }
+}
