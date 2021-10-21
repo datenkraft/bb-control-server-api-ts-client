@@ -7,7 +7,7 @@ export namespace ControlServerApiClient {
       configOptions: ConfigOptions,
       endpointUrl: string | null = null
   ) {
-    OpenAPI.BASE = endpointUrl ?? process.env.X_DATENKRAFT_Control_Server_API_URL ?? '';
+    OpenAPI.BASE = endpointUrl ?? process.env.X_DATENKRAFT_CONTROL_SERVER_API_URL ?? '';
     OpenAPI.TOKEN = await new Auth(new Config(configOptions)).getAccessToken();
   }
 
