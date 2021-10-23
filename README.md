@@ -44,7 +44,8 @@ ControlServerApiClient.init(configOptions).then(() => {
 
 ### Example Endpoint: Get Task Template Collection
 ~~~~ typescript
-ControlServerApiClient.Generated.TaskTemplateService.getTaskTemplateCollection()
+ControlServerApiClient.Generated.TaskTemplateService
+  .getTaskTemplateCollection()
   .then((taskTemplateCollection) => {
     // Request succeeded
   })
