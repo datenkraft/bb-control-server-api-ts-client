@@ -1,4 +1,4 @@
-# Backbone - SKU Catalog API TS Client
+# Backbone - Control Server API TS Client
 
 ## Introduction
 
@@ -13,7 +13,7 @@ The Control Server API TS Client enables you to work with the Control Server API
 You can use [npm](https://www.npmjs.com/) to install the package.
 
 ~~~~ bash
-npm install @datenkraft/bb-sku-catalog-api-ts-client
+npm install @datenkraft/bb-control-server-api-ts-client
 ~~~~
 
 ## Using the package
@@ -26,7 +26,7 @@ The Client is auto-generated with [ferdikoomen/openapi-typescript-codegen](https
 
 ~~~~ typescript
 import { ConfigOptions } from '@datenkraft/bb-base-api-ts-client';
-import { SkuCatalogApiClient } from '@datenkraft/bb-sku-catalog-api-ts-client';
+import { ControlServerApiClient } from '@datenkraft/bb-control-server-api-ts-client';
 
 const configOptions: ConfigOptions = {
   clientId: 'clientId',
@@ -37,15 +37,15 @@ const configOptions: ConfigOptions = {
   useExternalIdToken: true,
 };
 
-SkuCatalogApiClient.init(configOptions).then(() => {
+ControlServerApiClient.init(configOptions).then(() => {
   // Client is initialized
 });
 ~~~~
 
-### Example Endpoint: Get SKU
+### Example Endpoint: Get Task Template Collection
 ~~~~ typescript
-SkuCatalogApiClient.Generated.SkuService.getSku('skuCode')
-  .then((sku) => {
+ControlServerApiClient.Generated.TaskTemplateService.getTaskTemplateCollection()
+  .then((taskTemplateCollection) => {
     // Request succeeded
   })
   .catch((error) => {
