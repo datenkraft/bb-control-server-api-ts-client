@@ -20,8 +20,11 @@ describe('Client Test (staging)', () => {
                         expect(taskTemplateCollection).toContainEqual({
                             active: false,
                             identityId: "00000000-0000-0000-0000-000000000000",
-                            lastStartDate: "2021-10-22T00:00:00+00:00",
-                            paramsTemplate: {"dateFrom": "", "dateTo": ""},
+                            lastStartDate: "2022-01-01T00:00:00+00:00",
+                            paramsTemplate: {
+                                dateFrom: '',
+                                dateTo: ''
+                            },
                             projectId: "00000000-0000-0000-0000-000000000000",
                             schedule: "P1D",
                             taskTemplateId: "00000000-0000-0000-0000-000000000000",
