@@ -1,5 +1,5 @@
 {
-  "name": "@datenkraft/bb-x-control-server-api-ts-client",
+  "name": "@datenkraft/bb-control-server-api-ts-client",
   "homepage": "https://bitbucket.org/datenkraft/bb-control-server-api-ts-client#readme",
   "version": "1.1.0",
   "description": "The Control Server API TS Client enables you to work with the Control Server API",
