@@ -11,11 +11,13 @@ export class TaskService {
 
     /**
      * Get tasks
-     * Get tasks
+     * Get tasks. By default, only tasks assigned to the requesting identity are provided.
+     * If the requesting identity has the permission bb-control-server-api/task:read-all, all tasks are provided.
      * @param filterProjectId Task projectId filter
      * @param filterTaskType Task taskType filter
      * @param filterNotBefore Task notBefore filter
      * @param filterTaskStatus Task taskStatus filter
+     * @param filterIdentityId Task identityId filter
      * @returns taskResourceCollection OK
      * @returns errorResponse Unexpected error
      * @throws ApiError
@@ -25,6 +27,7 @@ export class TaskService {
         filterTaskType?: string,
         filterNotBefore?: string,
         filterTaskStatus?: Array<string>,
+        filterIdentityId?: string,
     ): Promise<taskResourceCollection | errorResponse> {
         const result = await __request({
             method: 'GET',
@@ -34,6 +37,7 @@ export class TaskService {
                 'filter[taskType]': filterTaskType,
                 'filter[notBefore]': filterNotBefore,
                 'filter[taskStatus]': filterTaskStatus,
+                'filter[identityId]': filterIdentityId,
             },
             errors: {
                 401: `Unauthorized`,
