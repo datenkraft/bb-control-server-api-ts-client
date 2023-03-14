@@ -1,6 +1,5 @@
 .gitignore
 .npmignore
-.openapi-generator-ignore
 api.ts
 apis/auth-permission-api.ts
 apis/auth-permission-role-api.ts
