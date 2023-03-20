@@ -8,31 +8,31 @@ describe("Client Test (staging)", () => {
       clientId: process.env.DEV_CLIENT_ID ?? "",
       clientSecret: process.env.DEV_CLIENT_SECRET_STAGING ?? "",
       oAuthTokenHost:
-          "https://authentication-api.staging.backbone.datenkraft.info",
+        "https://authentication-api.staging.backbone.datenkraft.info",
     };
 
     ControlServerApiClient.getApiConfig(
-        configOptions,
-        "https://control-server-api.staging.backbone.datenkraft.info/v1"
+      configOptions,
+      "https://control-server-api.staging.backbone.datenkraft.info/v1"
     )
-    .then((config) => {
-      const authRoleApi = new AuthRoleApi(config);
+      .then((config) => {
+        const authRoleApi = new AuthRoleApi(config);
 
-      authRoleApi
-      .getAuthRoleCollection()
-      .then(({ data: response }) => {
-        if (response instanceof Array) {
-          expect(response).toContainEqual({
-            roleCode: "bb-control-server-api/auth_access-management",
-            name: "Role for access management",
-          });
-          done();
-        } else {
-          done("Auth Role Collection not found");
-        }
+        authRoleApi
+          .getAuthRoleCollection()
+          .then(({ data: response }) => {
+            if (response instanceof Array) {
+              expect(response).toContainEqual({
+                roleCode: "bb-control-server-api/auth_access-management",
+                name: "Role for access management",
+              });
+              done();
+            } else {
+              done("Auth Role Collection not found");
+            }
+          })
+          .catch((error) => done(error));
       })
       .catch((error) => done(error));
-    })
-    .catch((error) => done(error));
   });
 });
