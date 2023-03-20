@@ -23,7 +23,7 @@ describe("Client Test (staging)", () => {
           .then(({ data: response }) => {
             if (response instanceof Array) {
               expect(response).toContainEqual({
-                roleCode: "bb-accounting-profile-api/auth_access-management",
+                roleCode: "bb-control-server-api/auth_access-management",
                 name: "Role for access management",
               });
               done();
