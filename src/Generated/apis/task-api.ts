@@ -42,12 +42,12 @@ export const TaskApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {string} [filterProjectId] Task projectId filter
          * @param {string} [filterTaskType] Task taskType filter
          * @param {string} [filterNotBefore] Task notBefore filter
-         * @param {Array<string>} [filterTaskStatus] Task taskStatus filter
+         * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
          * @param {string} [filterIdentityId] Task identityId filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskCollection: async (filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: Array<string>, filterIdentityId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTaskCollection: async (filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: string, filterIdentityId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/task`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -82,8 +82,8 @@ export const TaskApiAxiosParamCreator = function (configuration?: Configuration)
                     filterNotBefore;
             }
 
-            if (filterTaskStatus) {
-                localVarQueryParameter['filter[taskStatus]'] = filterTaskStatus.join(COLLECTION_FORMATS.csv);
+            if (filterTaskStatus !== undefined) {
+                localVarQueryParameter['filter[taskStatus]'] = filterTaskStatus;
             }
 
             if (filterIdentityId !== undefined) {
@@ -165,12 +165,12 @@ export const TaskApiFp = function(configuration?: Configuration) {
          * @param {string} [filterProjectId] Task projectId filter
          * @param {string} [filterTaskType] Task taskType filter
          * @param {string} [filterNotBefore] Task notBefore filter
-         * @param {Array<string>} [filterTaskStatus] Task taskStatus filter
+         * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
          * @param {string} [filterIdentityId] Task identityId filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: Array<string>, filterIdentityId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskResource>>> {
+        async getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: string, filterIdentityId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskResource>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskCollection(filterProjectId, filterTaskType, filterNotBefore, filterTaskStatus, filterIdentityId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -202,12 +202,12 @@ export const TaskApiFactory = function (configuration?: Configuration, basePath?
          * @param {string} [filterProjectId] Task projectId filter
          * @param {string} [filterTaskType] Task taskType filter
          * @param {string} [filterNotBefore] Task notBefore filter
-         * @param {Array<string>} [filterTaskStatus] Task taskStatus filter
+         * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
          * @param {string} [filterIdentityId] Task identityId filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: Array<string>, filterIdentityId?: string, options?: any): AxiosPromise<Array<TaskResource>> {
+        getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: string, filterIdentityId?: string, options?: any): AxiosPromise<Array<TaskResource>> {
             return localVarFp.getTaskCollection(filterProjectId, filterTaskType, filterNotBefore, filterTaskStatus, filterIdentityId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -236,13 +236,13 @@ export interface TaskApiInterface {
      * @param {string} [filterProjectId] Task projectId filter
      * @param {string} [filterTaskType] Task taskType filter
      * @param {string} [filterNotBefore] Task notBefore filter
-     * @param {Array<string>} [filterTaskStatus] Task taskStatus filter
+     * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
      * @param {string} [filterIdentityId] Task identityId filter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskApiInterface
      */
-    getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: Array<string>, filterIdentityId?: string, options?: AxiosRequestConfig): AxiosPromise<Array<TaskResource>>;
+    getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: string, filterIdentityId?: string, options?: AxiosRequestConfig): AxiosPromise<Array<TaskResource>>;
 
     /**
      * Update one or more fields of a Task
@@ -270,13 +270,13 @@ export class TaskApi extends BaseAPI implements TaskApiInterface {
      * @param {string} [filterProjectId] Task projectId filter
      * @param {string} [filterTaskType] Task taskType filter
      * @param {string} [filterNotBefore] Task notBefore filter
-     * @param {Array<string>} [filterTaskStatus] Task taskStatus filter
+     * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
      * @param {string} [filterIdentityId] Task identityId filter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskApi
      */
-    public getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: Array<string>, filterIdentityId?: string, options?: AxiosRequestConfig) {
+    public getTaskCollection(filterProjectId?: string, filterTaskType?: string, filterNotBefore?: string, filterTaskStatus?: string, filterIdentityId?: string, options?: AxiosRequestConfig) {
         return TaskApiFp(this.configuration).getTaskCollection(filterProjectId, filterTaskType, filterNotBefore, filterTaskStatus, filterIdentityId, options).then((request) => request(this.axios, this.basePath));
     }
 
