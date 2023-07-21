@@ -16,7 +16,10 @@ export class TaskService {
      * @param filterProjectId Task projectId filter
      * @param filterTaskType Task taskType filter
      * @param filterNotBefore Task notBefore filter
-     * @param filterTaskStatus Task taskStatus filter
+     * @param filterTaskStatus Status of the task (optional).
+     *
+     * - open: The task has not been processed yet.
+     * - finished: The task has been finished.
      * @param filterIdentityId Task identityId filter
      * @returns taskResourceCollection OK
      * @returns errorResponse Unexpected error
@@ -26,7 +29,7 @@ export class TaskService {
         filterProjectId?: string,
         filterTaskType?: string,
         filterNotBefore?: string,
-        filterTaskStatus?: Array<string>,
+        filterTaskStatus?: string,
         filterIdentityId?: string,
     ): Promise<taskResourceCollection | errorResponse> {
         const result = await __request({
