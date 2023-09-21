@@ -38,7 +38,11 @@ models/information-response.ts
 models/information.ts
 models/model-error.ts
 models/new-auth-role-resource.ts
+models/task-resource-collection-all-of.ts
+models/task-resource-collection.ts
 models/task-resource.ts
+models/task-template-resource-collection-all-of.ts
+models/task-template-resource-collection.ts
 models/task-template-resource.ts
 models/task-template-task-resource.ts
 models/update-task-resource.ts
