@@ -13,7 +13,7 @@ describe("Client Test (staging)", () => {
 
     ControlServerApiClient.getApiConfig(
       configOptions,
-      "https://control-server-api.staging.backbone.datenkraft.info/v1"
+      "https://control-server-api.staging.backbone.datenkraft.info/v2"
     )
       .then((config) => {
         const authRoleApi = new AuthRoleApi(config);
