@@ -51,12 +51,6 @@ export interface TaskTemplateResource {
      */
     'paramsTemplate': object;
     /**
-     * Params
-     * @type {object}
-     * @memberof TaskTemplateResource
-     */
-    'params'?: object | null;
-    /**
      * Last Start Date
      * @type {string}
      * @memberof TaskTemplateResource
