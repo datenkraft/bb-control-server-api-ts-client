@@ -24,9 +24,13 @@ export type taskTemplateResource = {
      */
     paramsTemplate: any;
     /**
-     * Params
+     * Schedule
      */
-    params?: any;
+    schedule: string;
+    /**
+     * Active
+     */
+    active: boolean;
     /**
      * Last Start Date
      */
