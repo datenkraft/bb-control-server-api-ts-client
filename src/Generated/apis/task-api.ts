@@ -47,7 +47,7 @@ export const TaskApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {string} [filterProjectId] Task projectId filter
          * @param {string} [filterTaskType] Task taskType filter
          * @param {string} [filterNotBefore] Task notBefore filter
-         * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
+         * @param {string} [filterTaskStatus] Status of the task (optional). - open: The task has not been processed yet. - finished: The task has been finished.
          * @param {string} [filterIdentityId] Task identityId filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -185,7 +185,7 @@ export const TaskApiFp = function(configuration?: Configuration) {
          * @param {string} [filterProjectId] Task projectId filter
          * @param {string} [filterTaskType] Task taskType filter
          * @param {string} [filterNotBefore] Task notBefore filter
-         * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
+         * @param {string} [filterTaskStatus] Status of the task (optional). - open: The task has not been processed yet. - finished: The task has been finished.
          * @param {string} [filterIdentityId] Task identityId filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -225,7 +225,7 @@ export const TaskApiFactory = function (configuration?: Configuration, basePath?
          * @param {string} [filterProjectId] Task projectId filter
          * @param {string} [filterTaskType] Task taskType filter
          * @param {string} [filterNotBefore] Task notBefore filter
-         * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
+         * @param {string} [filterTaskStatus] Status of the task (optional). - open: The task has not been processed yet. - finished: The task has been finished.
          * @param {string} [filterIdentityId] Task identityId filter
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -262,7 +262,7 @@ export interface TaskApiInterface {
      * @param {string} [filterProjectId] Task projectId filter
      * @param {string} [filterTaskType] Task taskType filter
      * @param {string} [filterNotBefore] Task notBefore filter
-     * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
+     * @param {string} [filterTaskStatus] Status of the task (optional). - open: The task has not been processed yet. - finished: The task has been finished.
      * @param {string} [filterIdentityId] Task identityId filter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -299,7 +299,7 @@ export class TaskApi extends BaseAPI implements TaskApiInterface {
      * @param {string} [filterProjectId] Task projectId filter
      * @param {string} [filterTaskType] Task taskType filter
      * @param {string} [filterNotBefore] Task notBefore filter
-     * @param {string} [filterTaskStatus] Status of the task (optional).      - open: The task has not been processed yet.     - finished: The task has been finished.
+     * @param {string} [filterTaskStatus] Status of the task (optional). - open: The task has not been processed yet. - finished: The task has been finished.
      * @param {string} [filterIdentityId] Task identityId filter
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
