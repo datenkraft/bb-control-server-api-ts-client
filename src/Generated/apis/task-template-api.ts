@@ -27,7 +27,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 // @ts-ignore
 import { ErrorResponse } from '../models';
 // @ts-ignore
+import { PatchTaskTemplateResource } from '../models';
+// @ts-ignore
+import { PostTaskTemplateResource } from '../models';
+// @ts-ignore
 import { TaskResource } from '../models';
+// @ts-ignore
+import { TaskTemplateResource } from '../models';
 // @ts-ignore
 import { TaskTemplateResourceCollection } from '../models';
 // @ts-ignore
@@ -38,6 +44,92 @@ import { TaskTemplateTaskResource } from '../models';
  */
 export const TaskTemplateApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Create a new task template
+         * @summary Create task template
+         * @param {PostTaskTemplateResource} postTaskTemplateResource 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTaskTemplate: async (postTaskTemplateResource: PostTaskTemplateResource, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'postTaskTemplateResource' is not null or undefined
+            assertParamExists('createTaskTemplate', 'postTaskTemplateResource', postTaskTemplateResource)
+            const localVarPath = `/task-template`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oAuthAuthorization required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oAuthAuthorization", [], configuration)
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(postTaskTemplateResource, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a specific task template by ID
+         * @summary Delete a task template
+         * @param {string} taskTemplateId The ID of the task template to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTaskTemplate: async (taskTemplateId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskTemplateId' is not null or undefined
+            assertParamExists('deleteTaskTemplate', 'taskTemplateId', taskTemplateId)
+            const localVarPath = `/task-template/{taskTemplateId}`
+                .replace(`{${"taskTemplateId"}}`, encodeURIComponent(String(taskTemplateId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oAuthAuthorization required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oAuthAuthorization", [], configuration)
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * Get task templates
          * @summary Get task templates
@@ -139,6 +231,54 @@ export const TaskTemplateApiAxiosParamCreator = function (configuration?: Config
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Update a specific task template by ID
+         * @summary Update task template
+         * @param {string} taskTemplateId The ID of the task template to update
+         * @param {PatchTaskTemplateResource} patchTaskTemplateResource 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTaskTemplate: async (taskTemplateId: string, patchTaskTemplateResource: PatchTaskTemplateResource, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskTemplateId' is not null or undefined
+            assertParamExists('updateTaskTemplate', 'taskTemplateId', taskTemplateId)
+            // verify required parameter 'patchTaskTemplateResource' is not null or undefined
+            assertParamExists('updateTaskTemplate', 'patchTaskTemplateResource', patchTaskTemplateResource)
+            const localVarPath = `/task-template/{taskTemplateId}`
+                .replace(`{${"taskTemplateId"}}`, encodeURIComponent(String(taskTemplateId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oAuthAuthorization required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oAuthAuthorization", [], configuration)
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(patchTaskTemplateResource, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -149,6 +289,28 @@ export const TaskTemplateApiAxiosParamCreator = function (configuration?: Config
 export const TaskTemplateApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TaskTemplateApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Create a new task template
+         * @summary Create task template
+         * @param {PostTaskTemplateResource} postTaskTemplateResource 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createTaskTemplate(postTaskTemplateResource: PostTaskTemplateResource, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskTemplateResource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTaskTemplate(postTaskTemplateResource, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete a specific task template by ID
+         * @summary Delete a task template
+         * @param {string} taskTemplateId The ID of the task template to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteTaskTemplate(taskTemplateId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaskTemplate(taskTemplateId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
         /**
          * Get task templates
          * @summary Get task templates
@@ -174,6 +336,18 @@ export const TaskTemplateApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postTaskTemplateTask(taskTemplateId, taskTemplateTaskResource, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Update a specific task template by ID
+         * @summary Update task template
+         * @param {string} taskTemplateId The ID of the task template to update
+         * @param {PatchTaskTemplateResource} patchTaskTemplateResource 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateTaskTemplate(taskTemplateId: string, patchTaskTemplateResource: PatchTaskTemplateResource, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskTemplateResource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskTemplate(taskTemplateId, patchTaskTemplateResource, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -184,6 +358,26 @@ export const TaskTemplateApiFp = function(configuration?: Configuration) {
 export const TaskTemplateApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TaskTemplateApiFp(configuration)
     return {
+        /**
+         * Create a new task template
+         * @summary Create task template
+         * @param {PostTaskTemplateResource} postTaskTemplateResource 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createTaskTemplate(postTaskTemplateResource: PostTaskTemplateResource, options?: any): AxiosPromise<TaskTemplateResource> {
+            return localVarFp.createTaskTemplate(postTaskTemplateResource, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a specific task template by ID
+         * @summary Delete a task template
+         * @param {string} taskTemplateId The ID of the task template to delete
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTaskTemplate(taskTemplateId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteTaskTemplate(taskTemplateId, options).then((request) => request(axios, basePath));
+        },
         /**
          * Get task templates
          * @summary Get task templates
@@ -207,6 +401,17 @@ export const TaskTemplateApiFactory = function (configuration?: Configuration, b
         postTaskTemplateTask(taskTemplateId: string, taskTemplateTaskResource: TaskTemplateTaskResource, options?: any): AxiosPromise<TaskResource> {
             return localVarFp.postTaskTemplateTask(taskTemplateId, taskTemplateTaskResource, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Update a specific task template by ID
+         * @summary Update task template
+         * @param {string} taskTemplateId The ID of the task template to update
+         * @param {PatchTaskTemplateResource} patchTaskTemplateResource 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTaskTemplate(taskTemplateId: string, patchTaskTemplateResource: PatchTaskTemplateResource, options?: any): AxiosPromise<TaskTemplateResource> {
+            return localVarFp.updateTaskTemplate(taskTemplateId, patchTaskTemplateResource, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -216,6 +421,26 @@ export const TaskTemplateApiFactory = function (configuration?: Configuration, b
  * @interface TaskTemplateApi
  */
 export interface TaskTemplateApiInterface {
+    /**
+     * Create a new task template
+     * @summary Create task template
+     * @param {PostTaskTemplateResource} postTaskTemplateResource 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplateApiInterface
+     */
+    createTaskTemplate(postTaskTemplateResource: PostTaskTemplateResource, options?: AxiosRequestConfig): AxiosPromise<TaskTemplateResource>;
+
+    /**
+     * Delete a specific task template by ID
+     * @summary Delete a task template
+     * @param {string} taskTemplateId The ID of the task template to delete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplateApiInterface
+     */
+    deleteTaskTemplate(taskTemplateId: string, options?: AxiosRequestConfig): AxiosPromise<void>;
+
     /**
      * Get task templates
      * @summary Get task templates
@@ -239,6 +464,17 @@ export interface TaskTemplateApiInterface {
      */
     postTaskTemplateTask(taskTemplateId: string, taskTemplateTaskResource: TaskTemplateTaskResource, options?: AxiosRequestConfig): AxiosPromise<TaskResource>;
 
+    /**
+     * Update a specific task template by ID
+     * @summary Update task template
+     * @param {string} taskTemplateId The ID of the task template to update
+     * @param {PatchTaskTemplateResource} patchTaskTemplateResource 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplateApiInterface
+     */
+    updateTaskTemplate(taskTemplateId: string, patchTaskTemplateResource: PatchTaskTemplateResource, options?: AxiosRequestConfig): AxiosPromise<TaskTemplateResource>;
+
 }
 
 /**
@@ -248,6 +484,30 @@ export interface TaskTemplateApiInterface {
  * @extends {BaseAPI}
  */
 export class TaskTemplateApi extends BaseAPI implements TaskTemplateApiInterface {
+    /**
+     * Create a new task template
+     * @summary Create task template
+     * @param {PostTaskTemplateResource} postTaskTemplateResource 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplateApi
+     */
+    public createTaskTemplate(postTaskTemplateResource: PostTaskTemplateResource, options?: AxiosRequestConfig) {
+        return TaskTemplateApiFp(this.configuration).createTaskTemplate(postTaskTemplateResource, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a specific task template by ID
+     * @summary Delete a task template
+     * @param {string} taskTemplateId The ID of the task template to delete
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplateApi
+     */
+    public deleteTaskTemplate(taskTemplateId: string, options?: AxiosRequestConfig) {
+        return TaskTemplateApiFp(this.configuration).deleteTaskTemplate(taskTemplateId, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Get task templates
      * @summary Get task templates
@@ -273,5 +533,18 @@ export class TaskTemplateApi extends BaseAPI implements TaskTemplateApiInterface
      */
     public postTaskTemplateTask(taskTemplateId: string, taskTemplateTaskResource: TaskTemplateTaskResource, options?: AxiosRequestConfig) {
         return TaskTemplateApiFp(this.configuration).postTaskTemplateTask(taskTemplateId, taskTemplateTaskResource, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a specific task template by ID
+     * @summary Update task template
+     * @param {string} taskTemplateId The ID of the task template to update
+     * @param {PatchTaskTemplateResource} patchTaskTemplateResource 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskTemplateApi
+     */
+    public updateTaskTemplate(taskTemplateId: string, patchTaskTemplateResource: PatchTaskTemplateResource, options?: AxiosRequestConfig) {
+        return TaskTemplateApiFp(this.configuration).updateTaskTemplate(taskTemplateId, patchTaskTemplateResource, options).then((request) => request(this.axios, this.basePath));
     }
 }

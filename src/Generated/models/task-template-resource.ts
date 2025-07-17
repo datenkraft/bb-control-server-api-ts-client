@@ -13,48 +13,17 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import { BaseTaskTemplateResource } from './base-task-template-resource';
+// May contain unused imports in some cases
+// @ts-ignore
+import { TaskTemplateResourceAllOf } from './task-template-resource-all-of';
 
 /**
- * 
+ * @type TaskTemplateResource
  * @export
- * @interface TaskTemplateResource
  */
-export interface TaskTemplateResource {
-    /**
-     * Task Template Id
-     * @type {string}
-     * @memberof TaskTemplateResource
-     */
-    'taskTemplateId': string;
-    /**
-     * Identity Id
-     * @type {string}
-     * @memberof TaskTemplateResource
-     */
-    'identityId': string;
-    /**
-     * Project Id
-     * @type {string}
-     * @memberof TaskTemplateResource
-     */
-    'projectId'?: string | null;
-    /**
-     * Task Type
-     * @type {string}
-     * @memberof TaskTemplateResource
-     */
-    'taskType': string;
-    /**
-     * Params Template
-     * @type {object}
-     * @memberof TaskTemplateResource
-     */
-    'paramsTemplate': object;
-    /**
-     * Last Start Date
-     * @type {string}
-     * @memberof TaskTemplateResource
-     */
-    'lastStartDate': string;
-}
+export type TaskTemplateResource = BaseTaskTemplateResource & TaskTemplateResourceAllOf;
+
 
