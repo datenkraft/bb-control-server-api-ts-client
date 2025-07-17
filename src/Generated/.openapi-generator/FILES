@@ -27,6 +27,7 @@ models/auth-role-identity-paginated-collection-all-of.ts
 models/auth-role-identity-paginated-collection.ts
 models/auth-role-identity-resource.ts
 models/auth-role-resource.ts
+models/base-task-template-resource.ts
 models/collection-pagination.ts
 models/collection.ts
 models/error-references-inner.ts
@@ -38,9 +39,12 @@ models/information-response.ts
 models/information.ts
 models/model-error.ts
 models/new-auth-role-resource.ts
+models/patch-task-template-resource.ts
+models/post-task-template-resource.ts
 models/task-resource-collection-all-of.ts
 models/task-resource-collection.ts
 models/task-resource.ts
+models/task-template-resource-all-of.ts
 models/task-template-resource-collection-all-of.ts
 models/task-template-resource-collection.ts
 models/task-template-resource.ts
