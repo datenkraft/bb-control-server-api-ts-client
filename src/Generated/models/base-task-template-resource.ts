@@ -31,7 +31,7 @@ export interface BaseTaskTemplateResource {
      * @type {string}
      * @memberof BaseTaskTemplateResource
      */
-    'taskType'?: string;
+    'taskType'?: BaseTaskTemplateResourceTaskTypeEnum;
     /**
      * Params Template
      * @type {object}
@@ -39,7 +39,7 @@ export interface BaseTaskTemplateResource {
      */
     'paramsTemplate'?: object;
     /**
-     * Schedule
+     * Task template schedule interval specification: - The format starts with the letter P, for \"period\". - Each duration period is represented by an integer value followed by a period designator (Y = years, M = months, D = days, W = weeks, H = hours, M = minutes, S = seconds). - If the duration contains time elements, that portion of the specification is preceded by the letter T. - The unit types must be entered from the largest scale unit on the left to the smallest scale unit on the right. So years before months, months before days, days before minutes, etc. - The specification can also be represented as a date time. - Formats are based on ISO 8601 duration format.
      * @type {string}
      * @memberof BaseTaskTemplateResource
      */
@@ -51,4 +51,16 @@ export interface BaseTaskTemplateResource {
      */
     'active'?: boolean;
 }
+
+export const BaseTaskTemplateResourceTaskTypeEnum = {
+    BigqueryCollectSkuUsage: 'bigqueryCollectSkuUsage',
+    CalloneCollectSkuUsage: 'calloneCollectSkuUsage',
+    DiscoCollectSkuUsage: 'discoCollectSkuUsage',
+    FulfillmentCollectSkuUsage: 'fulfillmentCollectSkuUsage',
+    MonitoringLoadTestSkuUsageToDebtLineItem: 'monitoringLoadTestSkuUsageToDebtLineItem',
+    UnknownDefaultOpenApi: '11184809'
+} as const;
+
+export type BaseTaskTemplateResourceTaskTypeEnum = typeof BaseTaskTemplateResourceTaskTypeEnum[keyof typeof BaseTaskTemplateResourceTaskTypeEnum];
+
 
