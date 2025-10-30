@@ -2812,8 +2812,7 @@
                     "startDate": {
                         "description": "Start Date",
                         "type": "string",
-                        "format": "date-time",
-                        "deprecated": true
+                        "format": "date-time"
                     }
                 },
                 "type": "object"
@@ -2853,6 +2852,14 @@
     },
     "tags": [
         {
+            "name": "audit-log",
+            "description": "audit-log"
+        },
+        {
+            "name": "auth-permission",
+            "description": "auth-permission"
+        },
+        {
             "name": "auth-permission-role",
             "description": "auth-permission-role"
         },
@@ -2861,20 +2868,12 @@
             "description": "auth-role"
         },
         {
-            "name": "auth-permission",
-            "description": "auth-permission"
-        },
-        {
-            "name": "docs",
-            "description": "docs"
-        },
-        {
             "name": "auth-role-identity",
             "description": "auth-role-identity"
         },
         {
-            "name": "audit-log",
-            "description": "audit-log"
+            "name": "docs",
+            "description": "docs"
         },
         {
             "name": "task",
