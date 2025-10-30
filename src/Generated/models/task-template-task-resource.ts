@@ -24,7 +24,6 @@ export interface TaskTemplateTaskResource {
      * Start Date
      * @type {string}
      * @memberof TaskTemplateTaskResource
-     * @deprecated
      */
     'startDate': string;
 }
