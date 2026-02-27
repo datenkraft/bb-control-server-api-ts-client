@@ -2519,7 +2519,8 @@
                             "calloneCollectSkuUsage",
                             "discoCollectSkuUsage",
                             "fulfillmentCollectSkuUsage",
-                            "monitoringLoadTestSkuUsageToDebtLineItem"
+                            "monitoringLoadTestSkuUsageToDebtLineItem",
+                            "freshdeskCollectSkuUsage"
                         ]
                     },
                     "paramsTemplate": {
