@@ -58,6 +58,7 @@ export const BaseTaskTemplateResourceTaskTypeEnum = {
     DiscoCollectSkuUsage: 'discoCollectSkuUsage',
     FulfillmentCollectSkuUsage: 'fulfillmentCollectSkuUsage',
     MonitoringLoadTestSkuUsageToDebtLineItem: 'monitoringLoadTestSkuUsageToDebtLineItem',
+    FreshdeskCollectSkuUsage: 'freshdeskCollectSkuUsage',
     UnknownDefaultOpenApi: '11184809'
 } as const;
 
