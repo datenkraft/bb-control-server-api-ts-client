@@ -136,10 +136,12 @@ export const TaskTemplateApiAxiosParamCreator = function (configuration?: Config
          * @param {number} [page] The page to read. Default is the first page.
          * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
          * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
+         * @param {string} [filterProjectId] Filter task templates by project id.
+         * @param {string} [filterTaskType] Filter task templates by task type code.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskTemplateCollection: async (page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTaskTemplateCollection: async (page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterProjectId?: string, filterTaskType?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/task-template`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -170,6 +172,14 @@ export const TaskTemplateApiAxiosParamCreator = function (configuration?: Config
 
             if (paginationMode !== undefined) {
                 localVarQueryParameter['paginationMode'] = paginationMode;
+            }
+
+            if (filterProjectId !== undefined) {
+                localVarQueryParameter['filter[projectId]'] = filterProjectId;
+            }
+
+            if (filterTaskType !== undefined) {
+                localVarQueryParameter['filter[taskType]'] = filterTaskType;
             }
 
 
@@ -317,11 +327,13 @@ export const TaskTemplateApiFp = function(configuration?: Configuration) {
          * @param {number} [page] The page to read. Default is the first page.
          * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
          * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
+         * @param {string} [filterProjectId] Filter task templates by project id.
+         * @param {string} [filterTaskType] Filter task templates by task type code.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskTemplateResourceCollection>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskTemplateCollection(page, pageSize, paginationMode, options);
+        async getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterProjectId?: string, filterTaskType?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskTemplateResourceCollection>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskTemplateCollection(page, pageSize, paginationMode, filterProjectId, filterTaskType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -384,11 +396,13 @@ export const TaskTemplateApiFactory = function (configuration?: Configuration, b
          * @param {number} [page] The page to read. Default is the first page.
          * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
          * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
+         * @param {string} [filterProjectId] Filter task templates by project id.
+         * @param {string} [filterTaskType] Filter task templates by task type code.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: any): AxiosPromise<TaskTemplateResourceCollection> {
-            return localVarFp.getTaskTemplateCollection(page, pageSize, paginationMode, options).then((request) => request(axios, basePath));
+        getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterProjectId?: string, filterTaskType?: string, options?: any): AxiosPromise<TaskTemplateResourceCollection> {
+            return localVarFp.getTaskTemplateCollection(page, pageSize, paginationMode, filterProjectId, filterTaskType, options).then((request) => request(axios, basePath));
         },
         /**
          * Generate a task with a task template id
@@ -447,11 +461,13 @@ export interface TaskTemplateApiInterface {
      * @param {number} [page] The page to read. Default is the first page.
      * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
      * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
+     * @param {string} [filterProjectId] Filter task templates by project id.
+     * @param {string} [filterTaskType] Filter task templates by task type code.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskTemplateApiInterface
      */
-    getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: AxiosRequestConfig): AxiosPromise<TaskTemplateResourceCollection>;
+    getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterProjectId?: string, filterTaskType?: string, options?: AxiosRequestConfig): AxiosPromise<TaskTemplateResourceCollection>;
 
     /**
      * Generate a task with a task template id
@@ -514,12 +530,14 @@ export class TaskTemplateApi extends BaseAPI implements TaskTemplateApiInterface
      * @param {number} [page] The page to read. Default is the first page.
      * @param {number} [pageSize] The maximum size per page is 100. Default is 100.
      * @param {'default' | 'totalCount'} [paginationMode] The paginationMode to use: - default: The total number of items in the collection will not be calculated. - totalCount: The total number of items in the collection will be calculated. This can mean loss of performance.
+     * @param {string} [filterProjectId] Filter task templates by project id.
+     * @param {string} [filterTaskType] Filter task templates by task type code.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TaskTemplateApi
      */
-    public getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', options?: AxiosRequestConfig) {
-        return TaskTemplateApiFp(this.configuration).getTaskTemplateCollection(page, pageSize, paginationMode, options).then((request) => request(this.axios, this.basePath));
+    public getTaskTemplateCollection(page?: number, pageSize?: number, paginationMode?: 'default' | 'totalCount', filterProjectId?: string, filterTaskType?: string, options?: AxiosRequestConfig) {
+        return TaskTemplateApiFp(this.configuration).getTaskTemplateCollection(page, pageSize, paginationMode, filterProjectId, filterTaskType, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
